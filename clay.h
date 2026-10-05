@@ -4393,6 +4393,7 @@ void Clay__CloneElementsWithExitTransition() {
                 for (int j = layoutElement->children.length - 1; j >= 0; --j) {
                     Clay_LayoutElement* childElement = Clay_LayoutElementArray_GetCheckCapacity(&context->layoutElements, layoutElement->children.elements[j]);
                     Clay__int32_tArray_Add(&bfsBuffer, nextIndex);
+                    Clay_LayoutElementArray_Set_DontTouchLength(&context->layoutElements, nextIndex, *childElement);
                     Clay__StringArray_Set_DontTouchLength(&context->layoutElementIdStrings, nextIndex, *Clay__StringArray_GetCheckCapacity(&context->layoutElementIdStrings, childElement - context->layoutElements.internalArray));
                     Clay__int32_tArray_Set_DontTouchLength(&context->layoutElementChildren, nextChildIndex, nextIndex);
                     nextIndex--;
